@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSE Stream Verifier</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>MSE Stream Verifier</h1>
+    <p class="header-desc">
+      Runs local media segments through Chromium's C++ Media Source Extensions (MSE) StreamParsers compiled to WebAssembly, displaying internal track decoder configs and buffer metadata or parser error diagnostics.
+    </p>
+  </header>
+  <section class="controls">
+    <label>
+      Media file(s):
+      <input type="file" id="media_file" multiple>
+    </label>
+    <label class="mime-label">
+      MSE MIME / codecs:
+      <input
+        type="text"
+        id="mime_type"
+        spellcheck="false"
+        placeholder='Auto-detect (or e.g. video/mp4; codecs="avc1.4d401f, mp4a.40.2")'>
+    </label>
+    <span id="file_summary"></span>
+  </section>
+  <main class="workspace">
+    <pre id="output">Loading WASM...</pre>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
